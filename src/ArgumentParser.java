@@ -5,8 +5,8 @@ public class ArgumentParser {
     String[] arguments;
     int argumentCount;
 
-    String inputBase;
-    String outputBase;
+    Base inputBase;
+    Base outputBase;
     private int numberOfBases;
 
     String inputString;
@@ -43,9 +43,9 @@ public class ArgumentParser {
                 case "hexadecimal":
                 case "-h":
                     if (this.inputBase == null) {
-                        this.inputBase = "hexadecimal";
+                        // this.inputBase = "hexadecimal";
                     } else if (this.outputBase == null) {
-                        this.outputBase = "hexadecimal";
+                        // this.outputBase = "hexadecimal";
                     };
                     this.numberOfBases += 1;
                     break;
@@ -53,9 +53,9 @@ public class ArgumentParser {
                 case "octal":
                 case "-o":
                     if (this.inputBase == null) {
-                        this.inputBase = "octal";
+                        // this.inputBase = "octal";
                     } else if (this.outputBase == null) {
-                        this.outputBase = "octal";
+                        // this.outputBase = "octal";
                     };
                     this.numberOfBases += 1;
                     break;
@@ -63,9 +63,9 @@ public class ArgumentParser {
                 case "decimal":
                 case "-d":
                     if (this.inputBase == null) {
-                        this.inputBase = "decimal";
+                        this.inputBase = new Decimal();
                     } else if (this.outputBase == null) {
-                        this.outputBase = "decimal";
+                        this.outputBase = new Decimal();
                     };
                     this.numberOfBases += 1;
                     break;
@@ -73,9 +73,9 @@ public class ArgumentParser {
                 case "binary":
                 case "-b":
                     if (this.inputBase == null) {
-                        this.inputBase = "binary";
+                        // this.inputBase = "binary";
                     } else if (this.outputBase == null) {
-                        this.outputBase = "binary";
+                        // this.outputBase = "binary";
                     };
                     this.numberOfBases += 1;
                     break;
@@ -83,9 +83,9 @@ public class ArgumentParser {
                 case "text":
                 case "-t":
                     if (this.inputBase == null) {
-                        this.inputBase = "text";
+                        this.inputBase = new Text();
                     } else if (this.outputBase == null) {
-                        this.outputBase = "text";
+                        this.outputBase = new Text();
                     };
                     this.numberOfBases += 1;
                     break;

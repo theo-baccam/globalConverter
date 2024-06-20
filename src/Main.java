@@ -13,11 +13,11 @@ public class Main {
                         No options specified
                         Example: globconv -t -h -i 'input text'%n"""
                     );
-                    break;
+                    return;
 
                 case INVALID_OPTION:
                     System.out.printf("Invalid option: %s%n", ap.errorString);
-                    break;
+                    return;
 
                 case MISSING_BASES:
                     System.out.printf("""
@@ -25,23 +25,31 @@ public class Main {
                         and output bases in that order
                         Example: globconv -t -h -i 'input text'%n"""
                     );
-                    break;
+                    return;
 
                 case TOO_MANY_BASES:
                     System.out.printf("""
                         Too many bases, there needs to be only 2 bases
                         Example: globconv -t -h -i 'input text'%n"""
                     );
-                    break;
+                    return;
 
                 case NO_INPUT:
                     System.out.printf("""
                         No input text specified
                         Example: globconv -t -h -i 'input text'%n"""
                     );
-                    break;
+                    return;
             };
         };
+
+        int[] list = ap.inputBase.baseToDec(ap.inputString);
+        for (int i : list) {
+            System.out.printf("%d ", i);
+        };
+        System.out.printf("%n");
+
+        System.out.printf("%s%n", ap.outputBase.decToBase(list));
 
     };
 }
