@@ -73,9 +73,9 @@ public class ArgumentParser {
                 case "binary":
                 case "-b":
                     if (this.inputBase == null) {
-                        // this.inputBase = "binary";
+                        this.inputBase = new Binary();
                     } else if (this.outputBase == null) {
-                        // this.outputBase = "binary";
+                        this.outputBase = new Binary();
                     };
                     this.numberOfBases += 1;
                     break;

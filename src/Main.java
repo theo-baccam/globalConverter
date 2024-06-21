@@ -43,13 +43,8 @@ public class Main {
             };
         };
 
-        int[] list = ap.inputBase.baseToDec(ap.inputString);
-        for (int i : list) {
-            System.out.printf("%d ", i);
-        };
-        System.out.printf("%n");
-
-        System.out.printf("%s%n", ap.outputBase.decToBase(list));
+        int[] decArray = ap.inputBase.baseToDec(ap.inputString);
+        System.out.printf("%s%n", ap.outputBase.decToBase(decArray));
 
     };
 }

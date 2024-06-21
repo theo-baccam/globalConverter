@@ -1,18 +1,20 @@
 package src;
 
 
-class Decimal implements Base {
+class Binary implements Base {
     private int parseIntFromString(String str) {
         int outputInt = 0;
         int strLength = str.length();
 
-        int i = strLength;
+        int i = strLength - 1;
         for (char c : str.toCharArray()) {
-            int digit = (int) c - 48;
-            for (int j = 1; j < i; j++) {
-                digit *= 10;
+            if (c != '1') {
+                i--;
+                continue;
             };
-            outputInt += digit;
+
+            outputInt += 1 << i;
+
             i--;
         };
 
@@ -33,11 +35,38 @@ class Decimal implements Base {
         return decArray;
     }
 
+    private String decimalToBinary(int num) {
+        String str = "";
+
+        int cursor = 1;
+        while (cursor < num) {
+            cursor *= 2;
+        };
+
+        while (cursor > 0) {
+            if ((num & cursor) == 0) {
+                str += "0";
+            } else {
+                str += "1";
+            };
+
+            cursor /= 2;
+        }
+
+        for (char c : str.toCharArray()) {
+            if (c != '0' || str.length() == 1) break;
+
+            str = str.substring(1);
+        };
+
+        return str;
+    }
+
     public String decToBase(int[] decArray) {
         String str = "";
 
         for (int i : decArray) {
-            str += i + " ";
+            str += decimalToBinary(i) + " ";
         };
 
         return str;
