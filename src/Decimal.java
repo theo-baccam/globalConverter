@@ -2,15 +2,31 @@ package src;
 
 
 class Decimal implements Base {
+    private int parseIntFromString(String str) {
+        int outputInt = 0;
+        int strLength = str.length();
+
+        int i = strLength;
+        for (char c : str.toCharArray()) {
+            int digit = (int) c - 48;
+            for (int j = 1; j < i; j++) {
+                digit *= 10;
+            };
+            outputInt += digit;
+            i--;
+        };
+
+        return outputInt;
+    };
+
     public int[] baseToDec(String base) {
         String[] splitStrings = base.split("\\s+");
         int[] decArray = new int[splitStrings.length];
-        
+
         int i = 0;
         for (String str : splitStrings) {
-            Integer parsedInt = Integer.parseInt(str);
-            int intPrimitive = parsedInt.intValue();
-            decArray[i] = intPrimitive;
+            int parsedInt = parseIntFromString(str);
+            decArray[i] = parsedInt;
             i++;
         };
 
@@ -21,7 +37,7 @@ class Decimal implements Base {
         String str = "";
 
         for (int i : decArray) {
-            str += i + " ";
+            str += i + "";
         };
 
         return str;
