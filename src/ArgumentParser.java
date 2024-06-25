@@ -43,9 +43,9 @@ public class ArgumentParser {
                 case "hexadecimal":
                 case "-h":
                     if (this.inputBase == null) {
-                        // this.inputBase = "hexadecimal";
+                        this.inputBase = new Hexadecimal();
                     } else if (this.outputBase == null) {
-                        // this.outputBase = "hexadecimal";
+                        this.outputBase = new Hexadecimal();
                     };
                     this.numberOfBases += 1;
                     break;
