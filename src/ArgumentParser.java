@@ -53,9 +53,9 @@ public class ArgumentParser {
                 case "octal":
                 case "-o":
                     if (this.inputBase == null) {
-                        // this.inputBase = "octal";
+                        this.inputBase = new Octal();
                     } else if (this.outputBase == null) {
-                        // this.outputBase = "octal";
+                        this.outputBase = new Octal();
                     };
                     this.numberOfBases += 1;
                     break;
