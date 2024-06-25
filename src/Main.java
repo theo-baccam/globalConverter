@@ -44,6 +44,9 @@ public class Main {
         };
 
         int[] decArray = ap.inputBase.baseToDec(ap.inputString);
+
+        if (ap.caesar != null) ap.caesar.shift(decArray);
+
         System.out.printf("%s%n", ap.outputBase.decToBase(decArray));
 
     };

@@ -14,6 +14,8 @@ public class ArgumentParser {
     Enums.ArgumentError argumentError;
     String errorString;
 
+    Caesar caesar;
+
     private int getArgumentCount() {
         int argumentCount = 0;
 
@@ -96,6 +98,14 @@ public class ArgumentParser {
                         this.inputString = this.arguments[i + 1];
                         skip = true;
                     };
+                    break;
+
+                case "caesar":
+                case "-c":
+                    if (i + 1 < this.argumentCount) {
+                        this.caesar = new Caesar(this.arguments[i + 1]);
+                        skip = true;
+                    }
                     break;
 
                 default:
